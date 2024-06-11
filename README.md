@@ -1,5 +1,11 @@
 # Desafio Senior Software Engineer
 
+### <a name="setup_environment">Arquitetura escolhida</a> 
+
+Nesse projeto esta sendo disponibilizado um serviço desenvolvido em spring-boot 3.2 e java 17 que acessa um catálogo de produtos e ofertas disponibilizado no desafio afim de obter os dados necessários para validação.
+Foi escolhido o banco de dados noSql MongoDB para persistencia dos dados.
+Os testes estão sendo realizados com junit.
+A documentação de acesso aos serviços está disponível utilizando o openAPI.
 
 ### <a name="setup_environment">Preparando o Ambiente</a> 
 
@@ -39,3 +45,7 @@ http://localhost:8090/swagger-ui/index.html
 | <ul><li>[!] Recebimento da mensagem da apólice emitida no tópico kafka</li></ul>                    |
 | <ul><li>[OK] Atualização da cotação de seguro no banco de dados com os dados da apólice</li></ul>   |
 | <ul><li>[OK] Desenvolvimento do(s) endpoint(s) para consulta da(s) cotação(ões) de seguro</li></ul> |
+
+Tive dificultade para produzir e consumir a mensagem nos tópicos kafka. Não consegui tratar os campos de formato double como BigDecimal para serem enviados e consumidos pelo serviço disponibilizado.
+Como forma de atender o penúltimo passo (Atualização da cotação de seguro no banco de dados com os dados da apólice), criei o serviço /emissao/emitirCotacao que recebe o id da cotação e o dado da apólice emitida atualizando assim o campo insurance_policy_id.
+
